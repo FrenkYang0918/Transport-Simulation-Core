@@ -150,6 +150,11 @@ public final class MessagePackReader extends ReaderBase {
 	}
 
 	@Override
+	public void iterateKeySet(Consumer<String> keyConsumer) {
+		map.keySet().forEach(keyConsumer);
+	}
+
+	@Override
 	public void merge(ReaderBase readerBase) {
 		if (readerBase instanceof final MessagePackReader other) {
 			map.putAll(other.map);

@@ -110,6 +110,13 @@ public abstract class ReaderBase {
 	public abstract void unpackChild(String key, Consumer<ReaderBase> ifExists);
 
 	/**
+	 * Iterate key set of the reader, exposing each as its own
+	 *
+	 * @param keyConsumer callback fed each key
+	 */
+	public abstract void iterateKeySet(Consumer<String> keyConsumer);
+
+	/**
 	 * Merge another reader's keys into this one, overwriting any colliding entries.
 	 * Implementations are no-ops when {@code readerBase} is of a different concrete type.
 	 *
